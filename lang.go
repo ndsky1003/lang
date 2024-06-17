@@ -48,13 +48,14 @@ func GetLang() language.Tag {
 	return lang
 }
 
+// Sprint 没有翻译功能,切记,我也不知道为什么这么设计的,难道是是0.16.0的未完成?
 func Get(s string) string {
-	return default_printer.Sprint(s)
+	return default_printer.Sprintf(s)
 }
 
 func GetByLang(lang language.Tag, s string) string {
 	p := message.NewPrinter(lang)
-	return p.Sprint(s)
+	return p.Sprintf(s)
 }
 
 func Getf(s string, args ...any) string {
